@@ -1,0 +1,6 @@
+print(type(50))
+print(type("Hello"))
+print(type(3.14))
+print(type([1, 2, 3]))
+print(type({}))
+print(type(None))
