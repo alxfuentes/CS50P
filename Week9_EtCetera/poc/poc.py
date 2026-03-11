@@ -1,4 +1,5 @@
 import os
+import time
 
 def main():
     main_menu()
@@ -18,8 +19,10 @@ def main_menu():
         
         if choice == "1":
             print("You selected Option 1")
+            time.sleep(1)
         elif choice == "2":
             print("You selected Option 2")
+            time.sleep(1)
         elif choice == "3":
             print("Exiting...")
             break
@@ -31,3 +34,11 @@ def main_menu():
 #    print("\033[2J\033[H", end="")
 
 main()
+
+
+# TUI - Text User Interface Library
+# pip install textual
+# pip install textual-dev
+# python -m textual
+
+
