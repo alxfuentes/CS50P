@@ -1,6 +1,7 @@
 import sys
 import os
 from PIL import Image
+from PIL import ImageOps
 
 def main():
     if len(sys.argv) > 3:
@@ -15,8 +16,8 @@ def main():
     fileext = os.path.splitext(filename)[1]
     output_fileext = os.path.splitext(output_filename)[1]
 
-    print(fileext)
-    print(output_fileext)
+    #print(fileext)
+    #print(output_fileext)
 
     if fileext != output_fileext:
         sys.exit("Input and output have different extensions")
@@ -28,9 +29,10 @@ def main():
         with Image.open(filename) as before:
             with Image.open("shirt.png") as shirt:
                 size = shirt.size
-                before = before.resize(size)
+                before = ImageOps.fit(before, size)
                 before.paste(shirt, shirt)
-                before.show()
+                before.save(output_filename)
+                # before.show()
             
     except Exception as e:
         sys.exit(f"Error on file access: {e}")
